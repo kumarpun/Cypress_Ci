@@ -1,0 +1,37 @@
+{
+  "name": "digiisocial-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write './**/*.(js|json)'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.3.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^1.6.2",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.1",
+    "prettier": "^2.5.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "commonPath": "cypress/integration/common/",
+    "nonGlobalStepDefinitions": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,js}": [
+      "yarn run format"
+    ]
+  },
+  "engines": {
+    "node": ">=10 <15"
+  }
+}
