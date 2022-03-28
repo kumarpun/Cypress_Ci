@@ -2,7 +2,7 @@ export class DashboardPage {
   dashboardTitle = "Dashboard";
   awardDiGiiTsXpath = "//span[.='DiGiiTs Awarded']";
   studentDropdownXpath = "//span[.='Select a student']";
-  selectStudentXpath = "//div[.='Kumar']";
+  selectStudentXpath = "//div[.='akumar']";
   digiitsDropdownXpath = "//span[.='Select DiGiiTs']";
   selectDiGiiTsXpath = "//div[.='10']";
   reason = "[name='reason']";

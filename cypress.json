@@ -4,5 +4,5 @@
   "testFiles": "**/*.feature",
   "video": false,
   "screenshotOnRunFailure": true,
-  "retries": 1
+  "retries": 0
 }
