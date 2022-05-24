@@ -69,7 +69,6 @@ Feature: Staff message board
         When the user select post button
         Then the tag post should be posted
 
-@focus
     Scenario: Staff can post gif
         Given user has browsed to the login page
         And user "Principal" has logged in to the system

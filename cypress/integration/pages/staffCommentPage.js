@@ -6,9 +6,9 @@ export class StaffCommentPage {
     postButtonXpath = "//button[.='Post']";
     commentImageSuccessXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/img[1]";
     feelingIconSelector = "#icon-felling";
-    emojiXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[2]/section[3]/ul[1]/li[1]/button[1]/span[1]";
+    emojiXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[2]/section[3]/ul[1]/li[1]/button[1]/span[1]";
     emojiCommentVisibilityXpath = "//div[2]/div/div/div[1]/span/a[. = 'Automation Principal']";
-    imageSucessXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]";
+    imageSucessXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/img[1]";
 
     selectCommentIcon() {
         cy.xpath(this.commentIconXpath).click();

@@ -21,9 +21,9 @@ export class StaffMessageBoardPage {
     gifTabXpath = "//span[.='GIF']";
     inputSearchGifXpath = "//input[@placeholder='Search for a GIF...']";
     selectGifSelector = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/img[1]";
-    gifVisibilityXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]";
+    gifVisibilityXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]";
     photoTabXpath = "//span[.='PHOTO']";
-    imageSucessXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]";
+    imageSucessXpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]";
 
     messageBoardMenu() {
         cy.xpath(this.messageBoardMenuXpath).click();
@@ -39,6 +39,7 @@ export class StaffMessageBoardPage {
     }
 
     messageBoardTextVisibility() {
+        cy.wait(8000);
         cy.xpath(this.messageBoardTextVisibilityXpath).should("be.visible");
     }
 

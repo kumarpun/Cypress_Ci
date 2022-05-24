@@ -6,6 +6,8 @@ import { StaffMessageBoardPage } from "./staffMessageBoardPage";
 import { StaffCommentPage } from "./staffCommentPage";
 import { StrikePage } from "./staffStrikePage";
 import { StaffChatPage } from "./StaffChatPage";
+// student route
+import { StudentLoginPage } from "./studentLoginPage";
 
 export class AppPage {
   // school
@@ -18,4 +20,5 @@ export class AppPage {
   staffChat = new StaffChatPage();
   // class
   studentHelp = new StudentHelpRequestPage();
+  studentLogin = new StudentLoginPage();
 }
