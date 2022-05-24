@@ -8,4 +8,4 @@ Feature: Student Login
         And the user select group
         And the user "Kumar" enter email and password
         And the user select class login button
-        Then student should be login successfully
+        Then the student should be login successfully

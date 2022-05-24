@@ -8,6 +8,7 @@ import { StrikePage } from "./staffStrikePage";
 import { StaffChatPage } from "./StaffChatPage";
 // student route
 import { StudentLoginPage } from "./studentLoginPage";
+import { StudentMessageBoardPage } from "./studentMessageBoardPage";
 
 export class AppPage {
   // school
@@ -21,4 +22,5 @@ export class AppPage {
   // class
   studentHelp = new StudentHelpRequestPage();
   studentLogin = new StudentLoginPage();
+  messageboard = new StudentMessageBoardPage();
 }

@@ -25,6 +25,6 @@ When("the user select class login button", () => {
     app.studentLogin.selectLoginButton();
 });
 
-Then("student should be login successfully", () => {
+Then("the student should be login successfully", () => {
     app.studentLogin.postButtonVisibility();
 });
