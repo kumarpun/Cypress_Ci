@@ -9,6 +9,7 @@ import { StaffChatPage } from "./StaffChatPage";
 // student route
 import { StudentLoginPage } from "./studentLoginPage";
 import { StudentMessageBoardPage } from "./studentMessageBoardPage";
+import { StudentChatPage } from "./studentchatPage";
 
 export class AppPage {
   // school
@@ -23,4 +24,5 @@ export class AppPage {
   studentHelp = new StudentHelpRequestPage();
   studentLogin = new StudentLoginPage();
   messageboard = new StudentMessageBoardPage();
+  studentChat = new StudentChatPage();
 }
