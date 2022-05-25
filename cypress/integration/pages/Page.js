@@ -10,6 +10,8 @@ import { StaffChatPage } from "./StaffChatPage";
 import { StudentLoginPage } from "./studentLoginPage";
 import { StudentMessageBoardPage } from "./studentMessageBoardPage";
 import { StudentChatPage } from "./studentchatPage";
+import { LearningZonePage } from "./learningZonePage";
+import { StudentProfilePage } from "./studentProfilePage";
 
 export class AppPage {
   // school
@@ -25,4 +27,6 @@ export class AppPage {
   studentLogin = new StudentLoginPage();
   messageboard = new StudentMessageBoardPage();
   studentChat = new StudentChatPage();
+  learningZone = new LearningZonePage();
+  studentProfile = new StudentProfilePage();
 }
