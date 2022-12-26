@@ -18,7 +18,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          # record: true
+          record: true
           browser: chrome
           spec:
-            cypress/integration/**/*.feature
+            cypress/integration/features/AdminFeature/adminLogin.feature
