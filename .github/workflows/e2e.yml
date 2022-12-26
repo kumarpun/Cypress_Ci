@@ -20,6 +20,6 @@ jobs:
         with:
           record: true
           browser: chrome
-          wait-on: cypress/integration/features/AdminFeature/adminLogin.feature
+          wait-on: cypress/integration/**/*.feature
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
