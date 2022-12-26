@@ -19,13 +19,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress run
+      - name: Cypress run Smoke tests
         uses: cypress-io/github-action@v4
         with:
           record: true
           parallel: true
           browser: chrome
+          group: Smoke specs
           spec:
             cypress/integration/features/SmokeTest/*.feature
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: Run Register tests
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          browser: chrome
+          group: Register specs
+          spec:
+            cypress/integration/features/register/*.feature
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
