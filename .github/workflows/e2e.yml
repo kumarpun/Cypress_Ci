@@ -18,8 +18,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          record: true
+          # record: true
           browser: chrome
-          script:
-            - export GROUP_NAME=admin
-            - *run-test
+          spec:
+            cypress/integration/**/*.feature
