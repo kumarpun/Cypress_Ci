@@ -14,12 +14,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1,2]
+        containers: [1, 2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress run Smoke tests
+      - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
           record: true
@@ -31,21 +31,21 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-  Register-tests:
+  Admin-tests:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run Register tests
+      - name: Run Admin tests
         uses: cypress-io/github-action@v4
         with:
           record: true
           parallel: true
           browser: chrome
-          group: Register specs
+          group: Admin specs
           spec:
-            cypress/integration/features/register/*.feature
+            cypress/integration/features/AdminFeature/*.feature
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
