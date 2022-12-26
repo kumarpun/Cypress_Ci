@@ -1,0 +1,147 @@
+name: E2E Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  # Smoketest, should pass
+  # login_test:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - uses: actions/checkout@main
+
+  #   - name: Login Tests
+  #     env:
+  #       TP_API_KEY: ${{ secrets.STAGING_TP_API_KEY }}
+  #       APPLICATION_URL: https://staging.enthu.com/
+  #       JOB_ID: Q9WdIN3EEUyE437qx6fA9g
+  #     run: |
+  #       envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+  #       export TEST_RESULT=".github/testresults"
+  #       EXECUTION_STRING=$(docker-compose -f docker-compose.yml up --abort-on-container-exit | grep 'Downloaded execution package')
+  #       EXECUTION_ID=`echo ${EXECUTION_STRING##* }`
+  #       curl -X GET "https://api.testproject.io/v2/projects/${{ secrets.STAGING_TP_PROJECT_ID }}/jobs/${JOB_ID}/reports/${EXECUTION_ID}?details=true&format=TestProject" -H "accept: application/json" -H "Authorization: ${{ secrets.STAGING_TP_API_KEY }}" | jq > ${TEST_RESULT}/login${EXECUTION_ID}.json
+  #       RESULT=$(jq .resultType ${TEST_RESULT}/login${EXECUTION_ID}.json | sed 's/^.//;s/.$//')
+  #       echo $EXECUTION_ID
+  #       if [ $RESULT = 'Failed' ]; then echo "login test failed" && cat ${TEST_RESULT}/login${EXECUTION_ID}.json | jq && exit 1; else echo "Test passed"; fi
+  #       rm ${TEST_RESULT}/login${EXECUTION_ID}.json
+  
+
+  # unpaid_single_session:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - uses: actions/checkout@main
+
+  #   - name: Unpaid single session
+  #     env:
+  #       TP_API_KEY: ${{ secrets.STAGING_TP_API_KEY }}
+  #       APPLICATION_URL: https://staging.enthu.com/
+  #       JOB_ID: sxxcXNhGBkiWWxI9mU3fDA
+  #     run: |
+  #       envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+  #       export TEST_RESULT=".github/testresults"
+  #       EXECUTION_STRING=$(docker-compose -f docker-compose.yml up --abort-on-container-exit | grep 'Downloaded execution package')
+  #       EXECUTION_ID=`echo ${EXECUTION_STRING##* }`
+  #       curl -X GET "https://api.testproject.io/v2/projects/${{ secrets.STAGING_TP_PROJECT_ID }}/jobs/${JOB_ID}/reports/${EXECUTION_ID}?details=true&format=TestProject" -H "accept: application/json" -H "Authorization: ${{ secrets.STAGING_TP_API_KEY }}" | jq > ${TEST_RESULT}/unpaid_single_session${EXECUTION_ID}.json
+  #       RESULT=$(jq .resultType ${TEST_RESULT}/unpaid_single_session${EXECUTION_ID}.json | sed 's/^.//;s/.$//')
+  #       echo $EXECUTION_ID
+  #       if [ $RESULT = 'Failed' ]; then echo "unpaid single session test failed" && cat ${TEST_RESULT}/unpaid_single_session${EXECUTION_ID}.json | jq && exit 1; else echo "Test passed"; fi
+  #       rm ${TEST_RESULT}/unpaid_single_session${EXECUTION_ID}.json
+
+
+  # unpaid_free_multiple_session:
+  #     runs-on: ubuntu-latest
+
+  #     steps:
+  #     - uses: actions/checkout@main
+
+  #     - name: Unpaid Free Multiple session
+  #       env:
+  #         TP_API_KEY: ${{ secrets.STAGING_TP_API_KEY }}
+  #         APPLICATION_URL: https://staging.enthu.com/
+  #         JOB_ID: 0jnDqMSh8E6E8rbuMUpNng
+  #       run: |
+  #         envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+  #         export TEST_RESULT=".github/testresults"
+  #         EXECUTION_STRING=$(docker-compose -f docker-compose.yml up --abort-on-container-exit | grep 'Downloaded execution package')
+  #         EXECUTION_ID=`echo ${EXECUTION_STRING##* }`
+  #         curl -X GET "https://api.testproject.io/v2/projects/${{ secrets.STAGING_TP_PROJECT_ID }}/jobs/${JOB_ID}/reports/${EXECUTION_ID}?details=true&format=TestProject" -H "accept: application/json" -H "Authorization: ${{ secrets.STAGING_TP_API_KEY }}" | jq > ${TEST_RESULT}/unpaid_free_multiple_session${EXECUTION_ID}.json
+  #         RESULT=$(jq .resultType ${TEST_RESULT}/unpaid_free_multiple_session${EXECUTION_ID}.json | sed 's/^.//;s/.$//')
+  #         echo $EXECUTION_ID
+  #         if [ $RESULT = 'Failed' ]; then echo "unpaid single session test failed" && cat ${TEST_RESULT}/unpaid_free_multiple_session${EXECUTION_ID}.json | jq && exit 1; else echo "Test passed"; fi
+  #         rm ${TEST_RESULT}/unpaid_free_multiple_session${EXECUTION_ID}.json
+
+
+  # batch_operation:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - uses: actions/checkout@main
+
+  #   - name: Batch operation
+  #     env:
+  #       TP_API_KEY: ${{ secrets.STAGING_TP_API_KEY }}
+  #       APPLICATION_URL: https://staging.enthu.com/
+  #       JOB_ID: V3rS1QqaqECzhbtyGse2tg
+  #     run: |
+  #       envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+  #       export TEST_RESULT=".github/testresults"
+  #       EXECUTION_STRING=$(docker-compose -f docker-compose.yml up --abort-on-container-exit | grep 'Downloaded execution package')
+  #       EXECUTION_ID=`echo ${EXECUTION_STRING##* }`
+  #       curl -X GET "https://api.testproject.io/v2/projects/${{ secrets.STAGING_TP_PROJECT_ID }}/jobs/${JOB_ID}/reports/${EXECUTION_ID}?details=true&format=TestProject" -H "accept: application/json" -H "Authorization: ${{ secrets.STAGING_TP_API_KEY }}" | jq > ${TEST_RESULT}/batch_operation${EXECUTION_ID}.json
+  #       RESULT=$(jq .resultType ${TEST_RESULT}/batch_operation${EXECUTION_ID}.json | sed 's/^.//;s/.$//')
+  #       echo $EXECUTION_ID
+  #       if [ $RESULT = 'Failed' ]; then echo "batch operation test failed" && cat ${TEST_RESULT}/batch_operation${EXECUTION_ID}.json | jq && exit 1; else echo "Test passed"; fi
+  #       rm ${TEST_RESULT}/batch_operation${EXECUTION_ID}.json
+
+
+  mobile_user_login:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+
+    - name: Mobile User Login
+      env:
+        TP_API_KEY: ${{ secrets.STAGING_TP_API_KEY }}
+        APPLICATION_URL: https://staging.enthu.com/
+        JOB_ID: nIpEJ62WZ0mJJzNLbQyf4A
+      run: |
+        envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+        export TEST_RESULT=".github/testresults"
+        EXECUTION_STRING=$(docker-compose -f docker-compose.yml up --abort-on-container-exit | grep 'Downloaded execution package')
+        EXECUTION_ID=`echo ${EXECUTION_STRING##* }`
+        curl -X GET "https://api.testproject.io/v2/projects/${{ secrets.STAGING_TP_PROJECT_ID }}/jobs/${JOB_ID}/reports/${EXECUTION_ID}?details=true&format=TestProject" -H "accept: application/json" -H "Authorization: ${{ secrets.STAGING_TP_API_KEY }}" | jq > ${TEST_RESULT}/mobile_user_login${EXECUTION_ID}.json
+        RESULT=$(jq .resultType ${TEST_RESULT}/mobile_user_login${EXECUTION_ID}.json | sed 's/^.//;s/.$//')
+        echo $EXECUTION_ID
+        if [ $RESULT = 'Failed' ]; then echo "mobile user login test failed" && cat ${TEST_RESULT}/mobile_user_login${EXECUTION_ID}.json | jq && exit 1; else echo "Test passed"; fi
+        rm ${TEST_RESULT}/mobile_user_login${EXECUTION_ID}.json
+
+
+  # mobile_batch_operation:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - uses: actions/checkout@main
+
+  #   - name: Mobile Batch operation
+  #     env:
+  #       TP_API_KEY: ${{ secrets.STAGING_TP_API_KEY }}
+  #       APPLICATION_URL: https://staging.enthu.com/
+  #       JOB_ID: eqewpJzfn0mxdeig2P5zkg
+  #     run: |
+  #       envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+  #       export TEST_RESULT=".github/testresults"
+  #       EXECUTION_STRING=$(docker-compose -f docker-compose.yml up --abort-on-container-exit | grep 'Downloaded execution package')
+  #       EXECUTION_ID=`echo ${EXECUTION_STRING##* }`
+  #       curl -X GET "https://api.testproject.io/v2/projects/${{ secrets.STAGING_TP_PROJECT_ID }}/jobs/${JOB_ID}/reports/${EXECUTION_ID}?details=true&format=TestProject" -H "accept: application/json" -H "Authorization: ${{ secrets.STAGING_TP_API_KEY }}" | jq > ${TEST_RESULT}/mobile_batch_operation${EXECUTION_ID}.json
+  #       RESULT=$(jq .resultType ${TEST_RESULT}/mobile_batch_operation${EXECUTION_ID}.json | sed 's/^.//;s/.$//')
+  #       echo $EXECUTION_ID
+  #       if [ $RESULT = 'Failed' ]; then echo "mobile user login test failed" && cat ${TEST_RESULT}/mobile_batch_operation${EXECUTION_ID}.json | jq && exit 1; else echo "Test passed"; fi
+  #       rm ${TEST_RESULT}/mobile_batch_operation${EXECUTION_ID}.json

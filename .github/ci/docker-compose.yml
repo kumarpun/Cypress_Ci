@@ -1,0 +1,31 @@
+version: "3.1"
+services:
+  testproject-agent:
+    image: testproject/agent:latest
+    container_name: testproject-agent
+    depends_on:
+      - chrome
+      # - firefox
+    environment:
+      TP_API_KEY: "${TP_API_KEY}"
+      # TP_AGENT_ALIAS: "GitHub Action Agent"
+      TP_JOB_ID: "${JOB_ID}"
+      TP_JOB_PARAMS: '"jobParameters" : { "browsers" : ["Chrome"], "testParameters": [{ "data": [{ "ApplicationURL": "${APPLICATION_URL}"}]}]}'
+      TP_AGENT_TEMP: "true"
+      TP_EXECUTION_ALIAS: "GitHub"
+      #TP_SDK_PORT: "8686"
+      CHROME: "chrome:4444"
+      CHROME_EXT: "localhost:5555"
+    #ports:
+    #- "8585:8585"
+    #- "8686:8686"
+    volumes:
+      - ../../filesForUpload/coverImage.jpg:/Users/apple/Desktop/1.jpg
+  chrome:
+    image: selenium/standalone-chrome
+    shm_size: '1gb'
+    volumes:
+      - /dev/shm:/dev/shm
+      - ../../filesForUpload/coverImage.jpg:/Users/apple/Desktop/1.jpg
+    ports:
+    - "5555:4444"

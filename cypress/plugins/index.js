@@ -16,13 +16,19 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+const cucumber = require("cypress-cucumber-preprocessor").default;
+const resolve = require("resolve");
+const webpackPreprocessor = require('@cypress/webpack-preprocessor');
+
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  const options = {
+    typescript: resolve.sync("typescript", { baseDir: config.projectRoot }),
+  };
+  on("file:preprocessor", cucumber(options));
 };
 
-const cucumber = require("cypress-cucumber-preprocessor").default;
-
-module.exports = (on, config) => {
-  on("file:preprocessor", cucumber());
-};
+module.exports = (on) => {
+  on('file:preprocessor', webpackPreprocessor())
+}

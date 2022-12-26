@@ -1,25 +1,45 @@
 {
-  "name": "digiisocial-cypress",
+  "name": "cypress-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "E2E cypress test for Enthuziastic web",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write './**/*.(js|json)'"
+    "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "pretest": "npm run clean:reports",
+    "scripts": "cypress run -e TAGS='not @skip' --config video=false",
+    "test": "npm run scripts || npm run single-report",
+    "single-report": "npm run combine-reports && npm run generate-report",
+    "posttest": "npm run single-report",
+    "format": "prettier --write './**/*.(ts|json)'",
+    "cy:dashboard": "cypress run --record --key 9375d1fe-5304-449f-8927-d6efb6d5b7fb",
+    "record:admin": "npx cypress run --record --group admin --spec 'cypress/integration/features/AdminFeature/adminLogin.feature'"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^9.3.1",
+    "@cypress/webpack-preprocessor": "^5.15.0",
+    "@types/node": "^18.11.8",
+    "cypress": "^10.11.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8",
+    "cypress-multi-reporters": "^1.5.0",
+    "cypress-social-logins": "^1.14.0",
     "cypress-xpath": "^1.6.2",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.3.1",
-    "prettier": "^2.5.1"
+    "dayjs": "^1.11.6",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.0",
+    "lodash": "^4.17.21",
+    "mocha": "^9.0.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "moment": "^2.29.4",
+    "prettier": "^2.3.2",
+    "typescript": "^4.8.4"
   },
   "cypress-cucumber-preprocessor": {
-    "commonPath": "cypress/integration/common/",
+    "commonPath": "cypress/integration/common",
     "nonGlobalStepDefinitions": true
   },
   "husky": {
@@ -33,6 +53,6 @@
     ]
   },
   "engines": {
-    "node": ">=10 <15"
+    "node": ">=10 <=16.x"
   }
 }

@@ -1,16 +1,21 @@
 {
-  "Principal": {
-    "email": "cumarpun1234+automation@gmail.com",
+  "Host": {
+    "emailAddress": "test@enthu.com",
+    "name": "Test Account",
+    "password": "Test@1234"
+  },
+  "user1": {
+    "emailAddress": "kumarpun251@gmail.com",
+    "name": "User One",
     "password": "qwertyuiop"
   },
-  "Kumar": {
-    "schoolName": "Production Test",
-    "username": "Kumar1",
+  "user2": {
+    "emailAddress": "cumarpun1234@gmail.com",
+    "name": "User One",
     "password": "qwertyuiop"
   },
-  "akumar": {
-    "schoolName": "Production Test",
-    "username": "akumar",
-    "password": "qwertyuiop"
+  "admin": {
+    "emailAddress": "er.sandipmalla@gmail.com",
+    "password": "123456789"
   }
 }

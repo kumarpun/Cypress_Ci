@@ -1,0 +1,1 @@
+In this directory a testresult file is created that is named with respect with respect to the test execution id

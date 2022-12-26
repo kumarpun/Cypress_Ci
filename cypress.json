@@ -1,8 +1,0 @@
-{
-  "baseUrl": "https://dev-school.digiisocial.com/",
-  "classUrl": "https://dev-class.digiisocial.com/anz/?demo",
-  "testFiles": "**/*.feature",
-  "video": false,
-  "screenshotOnRunFailure": true,
-  "retries": 0
-}
