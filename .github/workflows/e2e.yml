@@ -8,7 +8,26 @@ on:
     branches: [ master ]
 
 jobs:
-  cypress-tests:
+  Smoke-test:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Smoke test
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          browser: chrome
+          group: Admin Batch management specs
+          spec:
+            cypress/integration/features/SmokeTest/*.feature
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  Admin-test:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
     strategy:
@@ -31,13 +50,9 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-  Batch-tests:
+  Batch-test:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
