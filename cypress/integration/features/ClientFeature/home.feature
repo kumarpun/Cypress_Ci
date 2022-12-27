@@ -33,3 +33,8 @@ Feature: Home Feature
         And user "user1" has logged in using webUI
         And the user select about us menu
         Then the about us page get display
+
+
+# 1. Home
+# 2. Profile
+# 3. Social
