@@ -1,0 +1,93 @@
+name: E2E Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  Admin-test:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Admin Test run
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          browser: chrome
+          group: Admin Test Specs
+          spec:
+            cypress/integration/features/AdminTest/*.feature
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  Batch-test:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Batch test
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          browser: chrome
+          group: Admin Batch management specs
+          spec:
+            cypress/integration/features/BatchTest/*.feature
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  # Course-test:
+  #   runs-on: ubuntu-latest
+  #   container: cypress/browsers:node12.18.3-chrome87-ff82
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+
+  #     - name: Run Course test
+  #       uses: cypress-io/github-action@v4
+  #       with:
+  #         record: true
+  #         parallel: true
+  #         browser: chrome
+  #         group: Admin Course specs
+  #         spec:
+  #           cypress/integration/features/CourseTest/*.feature
+  #       env:
+  #         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  Enthu-tests:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Enthu run
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          browser: chrome
+          group: Enthu Test Specs
+          spec:
+            cypress/integration/features/ClientFeature/*.feature
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

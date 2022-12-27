@@ -14,7 +14,8 @@
     "posttest": "npm run single-report",
     "format": "prettier --write './**/*.(ts|json)'",
     "cy:dashboard": "cypress run --record --key 9375d1fe-5304-449f-8927-d6efb6d5b7fb",
-    "record:admin": "npx cypress run --record --group admin --spec 'cypress/integration/features/AdminFeature/adminLogin.feature'"
+    "record:admin": "npx cypress run --record --group admin --spec 'cypress/integration/features/AdminFeature/adminLogin.feature'",
+    "cy:admin": "npx cypress run --record --key 9375d1fe-5304-449f-8927-d6efb6d5b7fb --spec 'cypress/integration/features/AdminTest/*.feature'"
   },
   "license": "ISC",
   "devDependencies": {
