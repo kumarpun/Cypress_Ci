@@ -8,25 +8,6 @@ on:
     branches: [ master ]
 
 jobs:
-  Smoke-test:
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Run Smoke test
-        uses: cypress-io/github-action@v4
-        with:
-          record: true
-          parallel: true
-          browser: chrome
-          group: Admin Batch management specs
-          spec:
-            cypress/integration/features/SmokeTest/*.feature
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-
   Admin-test:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
@@ -38,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress run
+      - name: Admin Test run
         uses: cypress-io/github-action@v4
         with:
           record: true
@@ -57,7 +38,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run Batch tests
+      - name: Run Batch test
         uses: cypress-io/github-action@v4
         with:
           record: true
@@ -66,6 +47,25 @@ jobs:
           group: Admin Batch management specs
           spec:
             cypress/integration/features/BatchTest/*.feature
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  Course-test:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Course test
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          browser: chrome
+          group: Admin Course specs
+          spec:
+            cypress/integration/features/CourseTest/*.feature
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
