@@ -31,8 +31,10 @@ class CreateCoursePage {
   }
 
   selectTopic() {
-    cy.get(this.gradeOneTopicXpath).invoke("show").click();
-    cy.get(this.selectTopicXpath).click({ force: true });
+    cy.wait(3000);
+    // cy.get(this.gradeOneTopicXpath).invoke("show").click();
+    cy.xpath("//text[contains(text(),'grade 1 topic')]").trigger('mouseover')
+    cy.get('.add-indented-icon').eq(3).click({ force: true });
   }
 
   selectAgeGroup() {

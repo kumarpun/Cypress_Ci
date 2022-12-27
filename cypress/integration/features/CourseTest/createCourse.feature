@@ -8,7 +8,7 @@ Feature: Create Course from admin user
         And the user select login button
         And the user select course menu
         Then the table list should be display
-
+        
     Scenario: Admin can add new course
         Given user has browsed to the admin login page
         And user "admin" has logged in using adminUI
