@@ -10,7 +10,7 @@ Feature: Host Operation
         And the user select host operations option from the dropdown
         Then the table list should be display
 
-    # Scenario: Admin can search host
+    # Scenario: Admin can search host on host operation page
     #     Given user has browsed to the admin login page
     #     And user "admin" has logged in using adminUI
     #     When the user select login button

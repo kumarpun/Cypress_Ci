@@ -130,13 +130,13 @@ Feature: User Management
         And the admin select add button
         Then the user management with admin role should be added
 
-    Scenario: Admin can delete user management module assigned to the user
-        Given user has browsed to the admin login page
-        And user "admin" has logged in using adminUI
-        When the user select login button
-        And the user select user managment option from dropdown
-        And the admin search user
-        And the admin select searched user
-        And the admin validates user profile visibility
-        And the user select course operation delete icon
-        Then the module added should be deleted
+    # Scenario: Admin can delete user management module assigned to the user
+    #     Given user has browsed to the admin login page
+    #     And user "admin" has logged in using adminUI
+    #     When the user select login button
+    #     And the user select user managment option from dropdown
+    #     And the admin search user
+    #     And the admin select searched user
+    #     And the admin validates user profile visibility
+    #     And the user select course operation delete icon
+    #     Then the module added should be deleted
